@@ -1,0 +1,12 @@
+{
+	"name": "ClimateFrameworkDEMO",
+	"description": "",
+	"version": "1.0.0",
+	"homepage": "",
+	"mainsrc": "Source",
+	"projects": [],
+	"dependencies": {
+		"github.com/viniciussanchez/restrequest4delphi": "^v3.0.8",
+		"https://github.com/anselmoms/climateframework": "^v1.0.0"
+	}
+}

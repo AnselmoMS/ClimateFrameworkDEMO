@@ -1,0 +1,30 @@
+{
+	"hash": "d41d8cd98f00b204e9800998ecf8427e",
+	"updated": "2021-09-07T08:10:34.6596429-03:00",
+	"installedModules": {
+		"github.com/viniciussanchez/dataset-serialize": {
+			"name": "dataset-serialize",
+			"version": "v2.3.3",
+			"hash": "65a1995f3a283f09382722a7a8c21d1a",
+			"artifacts": {},
+			"failed": false,
+			"changed": false
+		},
+		"github.com/viniciussanchez/restrequest4delphi": {
+			"name": "restrequest4delphi",
+			"version": "v3.0.8",
+			"hash": "d6fbf746a29c5f0d735248939d1f989b",
+			"artifacts": {},
+			"failed": false,
+			"changed": false
+		},
+		"https://github.com/anselmoms/climateframework": {
+			"name": "climateframework",
+			"version": "v1.0.0",
+			"hash": "569189fb30e07792d4c966e06f4d44a5",
+			"artifacts": {},
+			"failed": false,
+			"changed": false
+		}
+	}
+}
