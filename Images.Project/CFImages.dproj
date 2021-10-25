@@ -41,7 +41,6 @@
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base)'!=''">
         <DCC_DcuOutput>.\$(Platform)\$(Config)</DCC_DcuOutput>
-        <DCC_ExeOutput>.\$(Platform)\$(Config)</DCC_ExeOutput>
         <DCC_E>false</DCC_E>
         <DCC_N>false</DCC_N>
         <DCC_S>false</DCC_S>
@@ -50,6 +49,9 @@
         <GenDll>true</GenDll>
         <DCC_Namespace>System;Xml;Data;Datasnap;Web;Soap;$(DCC_Namespace)</DCC_Namespace>
         <SanitizedProjectName>CFImages</SanitizedProjectName>
+        <PostBuildEvent><![CDATA[copy /Y $(OUTPUTFILENAME) ..\..\Library\LocalDEMO\bin\Resources
+copy /Y $(OUTPUTFILENAME) ..\..\DEMO\bin\Resources
+$(PostBuildEvent)]]></PostBuildEvent>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Win32)'!=''">
         <DCC_UsePackage>DBXSqliteDriver;vclactnband;vclFireDAC;tethering;FireDACADSDriver;ACBr_BPeDabpeESCPOS;ACBr_BPe;frx27;JvPluginSystem;cxLibraryRS27;dxRibbonCustomizationFormRS27;vcltouch;ACBr_NFe;ACBr_NFeDanfeFR;vcldb;JvBands;svn;JvJans;dxPScxExtCommonRS27;cxStatusKeeperPackageRS27;ACBr_NFeDanfeESCPOS;cxTreeListRS27;fs27;dxPScxSchedulerLnkRS27;JvDotNetCtrls;ACBr_SATExtratoFR;dxRichEditDocumentModelRS27;dxPsPrVwAdvRS27;ACBr_NFSeDanfseFR;vclx;frxTee27;dxPSdxFCLnkRS27;dxSpellCheckerRS27;dxPDFViewerRS27;RESTBackendComponents;ACBr_Reinf;VCLRESTComponents;dxWizardControlRS27;cxSchedulerTreeBrowserRS27;vclie;bindengine;CloudService;dxBarExtDBItemsRS27;ACBr_PAF;FireDACMySQLDriver;JvHMI;ACBr_SATECFVirtual;cxExportRS27;cxSchedulerWebServiceStorageRS27;bindcompdbx;frxDB27;GR32_D;ACBr_TCP;IndyIPServer;ACBr_CTe;dxPScxPCProdRS27;IndySystem;dxHttpIndyRequestRS27;bindcompvclwinx;ACBr_PagFor;dsnapcon;dxFlowChartRS27;ACBre_Social;FireDACMSAccDriver;fmxFireDAC;dxmdsRS27;vclimg;ACBr_SPEDImportar;Jcl;dxPSPrVwRibbonRS27;ACBr_SPED;ACBr_MDFe;frxIntIO27;dxCoreRS27;ACBr_LFD;FMXTee;cxSchedulerRibbonStyleEventEditorRS27;soaprtl;DbxCommonDriver;ACBr_CIOT;dxRichEditCoreRS27;JvManagedThreads;dxCloudServiceLibraryRS27;xmlrtl;soapmidas;JvTimeFramework;fmxobj;GR32_R;rtl;dxdborRS27;DbxClientDriver;dxdbtrRS27;CodeSiteExpressPkg;JvSystem;JvStdCtrls;ACBr_Convenio115;dxPSDBTeeChartRS27;appanalytics;dxRichEditControlCoreRS27;dxSpreadSheetCoreRS27;dxGDIPlusRS27;IndyIPClient;dxFireDACServerModeRS27;dxFlowChartAdvancedCustomizeFormRS27;bindcompvcl;dxServerModeRS27;TeeUI;dxPSLnksRS27;dxorgcRS27;JvDocking;JvPascalInterpreter;VclSmp;dxDBXServerModeRS27;dcl_ZeusComponents;JclVcl;ACBr_Boleto;cxGridRS27;ACBr_SEF2;JvControls;dxFireDACEMFRS27;JvPrintPreview;ACBr_MDFeDamdfeFR;ACBr_NFSe;dxtrmdRS27;dxSpreadSheetCoreConditionalFormattingDialogsRS27;RESTComponents;DBXInterBaseDriver;dxSpreadSheetConditionalFormattingDialogsRS27;fsDB27;ACBr_NF3e;ACBr_TEFD;dxSpreadSheetReportDesignerRS27;dxGaugeControlRS27;dxSpreadSheetRS27;bindcompvclsmp;ACBr_SATWS;JvGlobus;svnui;dxPSRichEditControlLnkRS27;cxPivotGridOLAPRS27;dxBarDBNavRS27;JvMM;fsTee27;dxADOServerModeRS27;cxPivotGridRS27;PngComponentsD;ACBr_EDI;ACBr_ONE;bindcompfmx;JvNet;inetdb;JvAppFrm;ACBr_Diversos;RaizeComponentsVcl;dxFlowChartDesignerRS27;ACBr_GNREGuiaFR;FmxTeeUI;RaizeComponentsVclDb;ACBr_LCDPR;fmx;FireDACIBDriver;fmxdae;DSPack_DXE2;vcledge;ZipMasterR;ACBr_CTeDacteFR;JvWizards;ACBr_Ponto;dbexpress;IndyCore;dxRibbonRS27;dxOrgChartAdvancedCustomizeFormRS27;JvPageComps;dsnap;FireDACCommon;JvDB;dxTileControlRS27;dclcxStatusKeeperPackageRS27;dxBarExtItemsRS27;cxSchedulerRS27;cxGridEMFRS27;ACBR_DeSTDA;soapserver;ACBr_SAT;JclDeveloperTools;dxRichEditControlRS27;dxPScxTLLnkRS27;JvCmp;DBXMySQLDriver;dxFlowChartLayoutsRS27;dxPSCoreRS27;dxADOEMFRS27;ACBr_Sintegra;FireDACCommonODBC;FireDACCommonDriver;ACBr_GNRE;ACBr_ADRCST;dxPScxPivotGridLnkRS27;inet;cxPivotGridChartRS27;IndyIPCommon;JvCustom;dxPSdxOCLnkRS27;vcl;ACBr_SATExtratoESCPOS;JvXPCtrls;dxMapControlRS27;ACBr_Integrador;dxPSdxDBOCLnkRS27;dxComnRS27;dxPSdxGaugeControlLnkRS27;frxIntIOIndy27;dxEMFRS27;TeeDB;FireDAC;cxTreeListdxBarPopupMenuRS27;dxPScxVGridLnkRS27;JvCore;dxPSdxPDFViewerLnkRS27;ACBr_Comum;dxPSdxSpreadSheetLnkRS27;JvCrypt;FireDACSqliteDriver;FireDACPgDriver;JvDlgs;JvRuntimeDesign;dxTabbedMDIRS27;dxGanttControlRS27;Tee;vclwinx;ACBr_OpenSSL;dxPScxCommonRS27;CustomIPTransport;vcldsnap;dxPSTeeChartRS27;dxSkinsCoreRS27;dxPScxGridLnkRS27;ZeusComponents;bindcomp;frxADO27;ACBr_Serial;cxSchedulerGridRS27;cxVerticalGridRS27;fsADO27;dxDockingRS27;frxe27;SynEdit_R;dxNavBarRS27;ACBr_BlocoX;dbxcds;frxDBX27;ACBr_NFCeECFVirtual;adortl;ACBr_BoletoFR;ACBr_ANe;dsnapxml;dbrtl;IndyProtocols;inetdbxpress;dxBarRS27;dxPSdxLCLnkRS27;dxPSdxMapControlLnkRS27;JclContainers;ACBr_NF3eDANF3eESCPOS;ACBr_MTER;dxPSdxDBTVLnkRS27;fmxase;$(DCC_UsePackage)</DCC_UsePackage>
@@ -72,6 +74,11 @@
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1_Win32)'!=''">
         <DCC_RemoteDebug>false</DCC_RemoteDebug>
+        <PostBuildEventExecuteWhen>TargetOutOfDate</PostBuildEventExecuteWhen>
+        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+        <VerInfo_Locale>1033</VerInfo_Locale>
+        <Manifest_File>(None)</Manifest_File>
+        <DCC_DcuOutput>DCU</DCC_DcuOutput>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2)'!=''">
         <DCC_LocalDebugSymbols>false</DCC_LocalDebugSymbols>
@@ -86,103 +93,103 @@
         <DCCReference Include="Source\cfimgConst.pas"/>
         <RcItem Include="Resources\PNG\128px\1.png">
             <ResourceType>RCDATA</ResourceType>
-            <ResourceId>PngImage_1</ResourceId>
+            <ResourceId>cfi1</ResourceId>
         </RcItem>
         <RcItem Include="Resources\PNG\128px\1n.png">
             <ResourceType>RCDATA</ResourceType>
-            <ResourceId>PngImage_2</ResourceId>
+            <ResourceId>cfi1n</ResourceId>
         </RcItem>
         <RcItem Include="Resources\PNG\128px\2.png">
             <ResourceType>RCDATA</ResourceType>
-            <ResourceId>PngImage_3</ResourceId>
+            <ResourceId>cfi2</ResourceId>
         </RcItem>
         <RcItem Include="Resources\PNG\128px\2n.png">
             <ResourceType>RCDATA</ResourceType>
-            <ResourceId>PngImage_4</ResourceId>
+            <ResourceId>cfi2n</ResourceId>
         </RcItem>
         <RcItem Include="Resources\PNG\128px\2r.png">
             <ResourceType>RCDATA</ResourceType>
-            <ResourceId>PngImage_5</ResourceId>
+            <ResourceId>cfi2r</ResourceId>
         </RcItem>
         <RcItem Include="Resources\PNG\128px\2rn.png">
             <ResourceType>RCDATA</ResourceType>
-            <ResourceId>PngImage_6</ResourceId>
+            <ResourceId>cfi2rn</ResourceId>
         </RcItem>
         <RcItem Include="Resources\PNG\128px\3.png">
             <ResourceType>RCDATA</ResourceType>
-            <ResourceId>PngImage_7</ResourceId>
+            <ResourceId>cfi3</ResourceId>
         </RcItem>
         <RcItem Include="Resources\PNG\128px\3n.png">
             <ResourceType>RCDATA</ResourceType>
-            <ResourceId>PngImage_8</ResourceId>
+            <ResourceId>cfi3n</ResourceId>
         </RcItem>
         <RcItem Include="Resources\PNG\128px\3TM.png">
             <ResourceType>RCDATA</ResourceType>
-            <ResourceId>PngImage_9</ResourceId>
+            <ResourceId>cfi3TM</ResourceId>
         </RcItem>
         <RcItem Include="Resources\PNG\128px\4.png">
             <ResourceType>RCDATA</ResourceType>
-            <ResourceId>PngImage_10</ResourceId>
+            <ResourceId>cfi4</ResourceId>
         </RcItem>
         <RcItem Include="Resources\PNG\128px\4n.png">
             <ResourceType>RCDATA</ResourceType>
-            <ResourceId>PngImage_11</ResourceId>
+            <ResourceId>cfi4n</ResourceId>
         </RcItem>
         <RcItem Include="Resources\PNG\128px\4r.png">
             <ResourceType>RCDATA</ResourceType>
-            <ResourceId>PngImage_12</ResourceId>
+            <ResourceId>cfi4r</ResourceId>
         </RcItem>
         <RcItem Include="Resources\PNG\128px\4rn.png">
             <ResourceType>RCDATA</ResourceType>
-            <ResourceId>PngImage_13</ResourceId>
+            <ResourceId>cfi4rn</ResourceId>
         </RcItem>
         <RcItem Include="Resources\PNG\128px\4t.png">
             <ResourceType>RCDATA</ResourceType>
-            <ResourceId>PngImage_14</ResourceId>
+            <ResourceId>cfi4t</ResourceId>
         </RcItem>
         <RcItem Include="Resources\PNG\128px\4tn.png">
             <ResourceType>RCDATA</ResourceType>
-            <ResourceId>PngImage_15</ResourceId>
+            <ResourceId>cfi4tn</ResourceId>
         </RcItem>
         <RcItem Include="Resources\PNG\128px\5.png">
             <ResourceType>RCDATA</ResourceType>
-            <ResourceId>PngImage_16</ResourceId>
+            <ResourceId>cfi5</ResourceId>
         </RcItem>
         <RcItem Include="Resources\PNG\128px\5n.png">
             <ResourceType>RCDATA</ResourceType>
-            <ResourceId>PngImage_17</ResourceId>
+            <ResourceId>cfi5n</ResourceId>
         </RcItem>
         <RcItem Include="Resources\PNG\128px\6.png">
             <ResourceType>RCDATA</ResourceType>
-            <ResourceId>PngImage_18</ResourceId>
+            <ResourceId>cfi6</ResourceId>
         </RcItem>
         <RcItem Include="Resources\PNG\128px\6n.png">
             <ResourceType>RCDATA</ResourceType>
-            <ResourceId>PngImage_19</ResourceId>
+            <ResourceId>cfi6n</ResourceId>
         </RcItem>
         <RcItem Include="Resources\PNG\128px\7.png">
             <ResourceType>RCDATA</ResourceType>
-            <ResourceId>PngImage_20</ResourceId>
+            <ResourceId>cfi7</ResourceId>
         </RcItem>
         <RcItem Include="Resources\PNG\128px\7n.png">
             <ResourceType>RCDATA</ResourceType>
-            <ResourceId>PngImage_21</ResourceId>
+            <ResourceId>cfi7n</ResourceId>
         </RcItem>
         <RcItem Include="Resources\PNG\128px\8.png">
             <ResourceType>RCDATA</ResourceType>
-            <ResourceId>PngImage_22</ResourceId>
+            <ResourceId>cfi8</ResourceId>
         </RcItem>
         <RcItem Include="Resources\PNG\128px\8n.png">
             <ResourceType>RCDATA</ResourceType>
-            <ResourceId>PngImage_23</ResourceId>
+            <ResourceId>cfi8n</ResourceId>
         </RcItem>
         <RcItem Include="Resources\PNG\128px\9.png">
             <ResourceType>RCDATA</ResourceType>
-            <ResourceId>PngImage_24</ResourceId>
+            <ResourceId>cfi9</ResourceId>
         </RcItem>
         <RcItem Include="Resources\PNG\128px\9n.png">
             <ResourceType>RCDATA</ResourceType>
-            <ResourceId>PngImage_25</ResourceId>
+            <ResourceId>cfi9n</ResourceId>
         </RcItem>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
@@ -204,6 +211,12 @@
                 <Source>
                     <Source Name="MainSource">CFImages.dpr</Source>
                 </Source>
+                <Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dcloffice2k270.bpl">Microsoft Office 2000 Sample Automation Server Wrapper Components</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dclofficexp270.bpl">Microsoft Office XP Sample Automation Server Wrapper Components</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDS)\Components\FastReport 6 VCL Professional\LibD27\dclfrxIBX27.bpl">FastReport 6.0 IBX Components</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDS)\Components\FastReport 6 VCL Professional\LibD27\dclfsIBX27.bpl">FastScript 1.9 IBX Components</Excluded_Packages>
+                </Excluded_Packages>
             </Delphi.Personality>
             <Deployment Version="3">
                 <DeployFile LocalName="$(BDS)\Redist\osx32\libcgunwind.1.0.dylib" Class="DependencyModule">
@@ -1008,4 +1021,37 @@
     <Import Project="$(BDS)\Bin\CodeGear.Delphi.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Delphi.Targets')"/>
     <Import Project="$(APPDATA)\Embarcadero\$(BDSAPPDATABASEDIR)\$(PRODUCTVERSION)\UserTools.proj" Condition="Exists('$(APPDATA)\Embarcadero\$(BDSAPPDATABASEDIR)\$(PRODUCTVERSION)\UserTools.proj')"/>
     <Import Project="$(MSBuildProjectName).deployproj" Condition="Exists('$(MSBuildProjectName).deployproj')"/>
+    <PropertyGroup Condition="'$(Config)'=='Debug' And '$(Platform)'=='Win32'">
+        <PreBuildEvent/>
+        <PreBuildEventIgnoreExitCode>False</PreBuildEventIgnoreExitCode>
+        <PreLinkEvent/>
+        <PreLinkEventIgnoreExitCode>False</PreLinkEventIgnoreExitCode>
+        <PostBuildEvent>copy /Y $(OUTPUTFILENAME) ..\..\Library\LocalDEMO\bin\Resources&amp;&amp;copy /Y $(OUTPUTFILENAME) ..\..\DEMO\bin\Resources</PostBuildEvent>
+        <PostBuildEventIgnoreExitCode>False</PostBuildEventIgnoreExitCode>
+        <PostBuildEventExecuteWhen>TargetOutOfDate</PostBuildEventExecuteWhen>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Config)'=='Debug' And '$(Platform)'=='Win64'">
+        <PreBuildEvent/>
+        <PreBuildEventIgnoreExitCode>False</PreBuildEventIgnoreExitCode>
+        <PreLinkEvent/>
+        <PreLinkEventIgnoreExitCode>False</PreLinkEventIgnoreExitCode>
+        <PostBuildEvent>copy /Y $(OUTPUTFILENAME) ..\..\Library\LocalDEMO\bin\Resources&amp;&amp;copy /Y $(OUTPUTFILENAME) ..\..\DEMO\bin\Resources</PostBuildEvent>
+        <PostBuildEventIgnoreExitCode>False</PostBuildEventIgnoreExitCode>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Config)'=='Release' And '$(Platform)'=='Win32'">
+        <PreBuildEvent/>
+        <PreBuildEventIgnoreExitCode>False</PreBuildEventIgnoreExitCode>
+        <PreLinkEvent/>
+        <PreLinkEventIgnoreExitCode>False</PreLinkEventIgnoreExitCode>
+        <PostBuildEvent>copy /Y $(OUTPUTFILENAME) ..\..\Library\LocalDEMO\bin\Resources&amp;&amp;copy /Y $(OUTPUTFILENAME) ..\..\DEMO\bin\Resources</PostBuildEvent>
+        <PostBuildEventIgnoreExitCode>False</PostBuildEventIgnoreExitCode>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Config)'=='Release' And '$(Platform)'=='Win64'">
+        <PreBuildEvent/>
+        <PreBuildEventIgnoreExitCode>False</PreBuildEventIgnoreExitCode>
+        <PreLinkEvent/>
+        <PreLinkEventIgnoreExitCode>False</PreLinkEventIgnoreExitCode>
+        <PostBuildEvent>copy /Y $(OUTPUTFILENAME) ..\..\Library\LocalDEMO\bin\Resources&amp;&amp;copy /Y $(OUTPUTFILENAME) ..\..\DEMO\bin\Resources</PostBuildEvent>
+        <PostBuildEventIgnoreExitCode>False</PostBuildEventIgnoreExitCode>
+    </PropertyGroup>
 </Project>

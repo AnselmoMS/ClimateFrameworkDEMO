@@ -8,12 +8,12 @@ uses
   Model.Services.Interfaces;
 
 type
-  TServicesClimateBuilder<T> = class
+  TServicesClimateBuilder = class
   var
     FLocation: TClimateLocation;
     FDefaultLocation: Boolean;
     public
-    class function NewClimateFinder(_AParent: IServices<T>): IClimateFinder<IServices<T>>;
+    class function NewClimateFinder: IClimateFinder;
   end;
 
 implementation
@@ -26,7 +26,7 @@ uses
 
 { TClimateFindeBuilder }
 
-class function TServicesClimateBuilder<T>.NewClimateFinder(_AParent: IServices<T>): IClimateFinder<IServices<T>>;
+class function TServicesClimateBuilder.NewClimateFinder: IClimateFinder;
 var
   LConn: IRestConnector;
   LLocDefault: TClimateLocation;
@@ -50,8 +50,8 @@ begin
         .WithToken('0037758ec0a554d1f47b83583a420e14');
 
   Result :=
-    TClimateFinder<IServices<T>>
-      .New(_AParent)
+    TClimateFinder
+      .New
         .WithConnector(LConn)
         .AddProvider(LProviderClimaTempo)
         //.AddProvider(LProviderHG)

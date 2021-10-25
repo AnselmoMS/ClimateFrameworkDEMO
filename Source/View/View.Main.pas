@@ -13,39 +13,34 @@ uses
   Vcl.Forms,
   Vcl.Dialogs,
   Vcl.StdCtrls,
-  Vcl.BaseImageCollection,
   Vcl.ImageCollection,
-  System.ImageList,
-  Vcl.ImgList,
-  Vcl.VirtualImageList,
   Vcl.ExtCtrls,
   Controller.Interfaces,
   Controller,
   REST.Types,
-  CF.Entities.ClimateData,
   Data.Bind.Components,
   Data.Bind.ObjectScope,
-  Vcl.VirtualImage;
+  Vcl.ComCtrls,
+  Model.Entities.ClimateData;
 
 type
-  TForm2 = class(TForm)
+  TfrmMain = class(TForm)
     Panel1: TPanel;
-    VirtualImageList1: TVirtualImageList;
-    ImageCollection1: TImageCollection;
     lblCurrentTemp: TLabel;
     Button1: TButton;
-    VirtualImage1: TVirtualImage;
     lblCondition: TLabel;
     lblTemperatureSensation: TLabel;
     rgSource: TRadioGroup;
     lblDateTime: TLabel;
+    statusbar: TStatusBar;
+    imgIcon: TImage;
     procedure FormCreate(Sender: TObject);
     procedure Button1Click(Sender: TObject);
   private
     FController: IController;
-    Fdados: TClimateData;
+    Fdados: TClimate;
     { Private declarations }
-    procedure TestarAdapter;
+    procedure Refresh;
   public
     { Public declarations }
     procedure ObterDados;
@@ -53,67 +48,56 @@ type
   end;
 
 var
-  Form2: TForm2;
+  frmMain: TfrmMain;
 
 implementation
 
 uses
-  CF.Services.ClimateFinder.Adapters,
-  System.JSON
-  {, Rest.Json},
-  CF.StringUtils;
+  CF.Entities.ClimateData.Types;
 
 {$R *.dfm}
 
-procedure TForm2.Button1Click(Sender: TObject);
+procedure TfrmMain.Button1Click(Sender: TObject);
 begin
-//  TestarAdapter;
-  FController
-    .Services
-      .Climate
-        .Find;
+  Refresh
 end;
 
-procedure TForm2.FormCreate(Sender: TObject);
+procedure TfrmMain.FormCreate(Sender: TObject);
 begin
   FController :=
     TController
       .New
-        .Services
-          .Climate
-            .OnAfterGetData(ObterDados)
-            .Parent
-          .Parent;
+        .Climate
+          .WhenGetData(ObterDados)
+        .Parent;
 end;
 
-procedure TForm2.ObterDados;
+procedure TfrmMain.ObterDados;
 begin
   Fdados := FController
-             .Services
-               .Climate
-                 .GetData;
+              .Climate
+                .GetData;
   PreencherDados;
 end;
 
-procedure TForm2.PreencherDados;
+procedure TfrmMain.PreencherDados;
 begin
-  lblDateTime.Caption := DateTimeToStr(Fdados.Data.Date);
-  lblCurrentTemp.Caption := Fdados.Data.Temperature.ToString;
-  lblTemperatureSensation.Caption := Fdados.Data.Sensation.ToString;
-  VirtualImage1.ImageName := Fdados.Data.Icon;
-  lblCondition.Caption := Fdados.Data.Condition;
+  lblDateTime.Caption := DateTimeToStr(Fdados.Detail.Date);
+  lblCurrentTemp.Caption := Fdados.Detail.Temperature.ToString;
+  lblTemperatureSensation.Caption := Fdados.Detail.Sensation.ToString;
+  lblCondition.Caption := Fdados.Detail.Condition;
+
+  FController
+    .Resources
+      .Images
+        .LoadPicture(Fdados.Detail.ClimateIcon, imgIcon.Picture);
 end;
 
-procedure TForm2.TestarAdapter;
-const
-  RETURN =
-    '{"id":4529,"name":"Itabaiana","state":"SE","country":"BR  ","data":{"temperature":35,"wind_direction":"ESE","wind_velocity":19,"humidity":44.1,"condition":"Poucas nuvens","pressure":992.4,"icon":"2","sensation":38, "date":"2021-09-19 12:34:47"}}';//
-    //{"id":4529,"name":"Itabaiana","state":"SE","country":"BR  ","data":{"temperature":26,"wind_direction":"E","wind_velocity":22.3,"humidity":73.1,"condition":"Poucas nuvens","pressure":990.3,"icon":"2n","sensation":27,"date":"2021-09-19 19:32:11"}}
+procedure TfrmMain.Refresh;
 begin
-  var jsv := TJSonObject.ParseJSONValue(trim(RETURN));
-  FDados:= TClimateFinderAdapterClimaTempo.New.FromJson(jsv);
-  //
-  PreencherDados;
+  FController
+    .Climate
+      .Find;
 end;
 
 end.

@@ -1,17 +1,20 @@
 unit Model.Services.Interfaces;
 
 interface
-
 uses
-  CF.Services.ClimateFinder.Interfaces;
+  Model.Entities.ClimateData,
+  System.SysUtils;
 
   type
-    IServices<T> = interface
-      ['{619B3437-7C57-49A3-B51C-F2EAD6B65F77}']
-      function Climate: IClimateFinder<IServices<T>>;
+    IClimateService<T> = interface
+    ['{E7E6A495-2228-44A4-BCE2-9E9A97D0F7A2}']
+      function Find: IClimateService<T>;
+      function GetData: TClimate;
+      function WhenGetData(_AProc: TProc): IClimateService<T>;
       function Parent: T;
     end;
 
 implementation
 
 end.
+
